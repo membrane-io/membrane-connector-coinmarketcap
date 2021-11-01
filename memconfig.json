@@ -1,0 +1,48 @@
+{
+    "dependencies": {
+        "http": "http:"
+    },
+    "config": {},
+    "schema": {
+        "types": [
+            {
+                "name": "Root",
+                "fields": [
+                    {
+                        "name": "symbolPrice",
+                        "type": "Coin",
+                        "params": [
+                            {
+                                "name": "symbol",
+                                "type": "String"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "echoSymbol",
+                        "type": "Coin",
+                        "params": [
+                            {
+                                "name": "symbol",
+                                "type": "String"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Coin",
+                "fields": [
+                    {
+                        "name": "symbol",
+                        "type": "String"
+                    },
+                    {
+                        "name": "price",
+                        "type": "Float"
+                    }
+                ]
+            }
+        ]
+    }
+}
