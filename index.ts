@@ -10,10 +10,14 @@ async function api(method, url, body?) {
     }
     try {
         const json = await http.resource({ method, url, headers: JSON.stringify(headers), body: JSON.stringify(body) }).$query(`{ body }`);
-        return JSON.parse(json.body)
+        return JSON.parse(json.body);
     } catch (e) {
         throw e;
     }
+}
+
+const getRandomPrice = (min, max) => {
+    return Math.random() * (max - min) + min;
 }
 
 const apiGet = (path) => api('GET', baseUrl + path);
@@ -44,10 +48,12 @@ export const Root = {
             throw new Error("Coin symbol cannot be null");
         }
 
+        const price = getRandomPrice(50000, 70000);
+
         try {
             return {
                 symbol,
-                price: 60696.442892367784
+                price
             };
         } catch (e) {
             throw e;
